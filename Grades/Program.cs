@@ -30,7 +30,7 @@ namespace Grades
             return Console.ReadLine();
         }
 
-        static GradeBook InitializeGradeBook(string name)
+        static IGradeTracker InitializeGradeBook(string name)
         {
             var gradeBook = new ThrowAwayGradeBook();
             gradeBook.NameChanged += OnNameChanged;

@@ -11,14 +11,14 @@ namespace Grades
         public override GradeStatistics ComputeStatistics()
         {
             // find and throw away lowest grade
-            if (this.grades.Count > 0)
+            if (this._grades.Count > 0)
             {
                 var lowestGrade = float.MaxValue;
-                foreach (float grade in this.grades)
+                foreach (float grade in this)
                 {
                     lowestGrade = Math.Min(grade, lowestGrade);
                 }
-                this.grades.Remove(lowestGrade);
+                this._grades.Remove(lowestGrade);
             }
 
             // proceed with rest of compute logic
