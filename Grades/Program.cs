@@ -10,10 +10,9 @@ namespace Grades
     {
         static void Main(string[] args)
         {
-            Console.Write("Enter Grade Book's Name: ");
-            var name = Console.ReadLine();
+            var name = GetGradeBookName();
             var gradeBook = InitializeGradeBook(name);
-            
+
             try {
                 PrintStats(gradeBook.ComputeStatistics());
             } catch (DivideByZeroException ex) {
@@ -21,19 +20,25 @@ namespace Grades
                 return;
             }
             
-            Console.Write("Press Any Key to Exit...");
+            Console.Write("Press any key to exit...");
             Console.ReadKey();
+        }
+
+        static string GetGradeBookName()
+        {
+            Console.Write("Enter Grade Book's Name: ");
+            return Console.ReadLine();
         }
 
         static GradeBook InitializeGradeBook(string name)
         {
-            var gradeBook = new GradeBook();
+            var gradeBook = new ThrowAwayGradeBook();
             gradeBook.NameChanged += OnNameChanged;
             gradeBook.AddGrade(100f);
             gradeBook.AddGrade(80f);
             gradeBook.AddGrade(71f);
             gradeBook.AddGrade(92f);
-            gradeBook.AddGrade(63f);
+            gradeBook.AddGrade(33f);
             gradeBook.Name = name;
             return gradeBook;
         }

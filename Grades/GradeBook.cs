@@ -8,9 +8,9 @@ namespace Grades
 {
     public class GradeBook
     {
-        private List<float> grades;
+        protected List<float> grades;
 
-        private string _name;
+        protected string _name;
         public string Name
         {
             get
@@ -46,7 +46,7 @@ namespace Grades
             this.grades.Add(grade);
         }
 
-        public GradeStatistics ComputeStatistics()
+        public virtual GradeStatistics ComputeStatistics()
         {
             var stats = new GradeStatistics();
             var sum = 0f;
